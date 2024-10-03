@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 class DoctorButton extends StatelessWidget {
   final String name;
   final VoidCallback? onPressed;
-  final Color? backgroundColor; // Ahora opcional
-  final Color? borderColor; // Color de borde opcional
+  final Color? backgroundColor; 
+  final Color? borderColor; 
 
-  // Constructor para pasar el nombre y la acción del doctor
   const DoctorButton({
     super.key,
     required this.name,
     this.onPressed,
-    this.backgroundColor, // Permitir pasar un color
-    this.borderColor, // Color de borde opcional
+    this.backgroundColor, 
+    this.borderColor, 
   });
 
   @override
@@ -22,15 +21,15 @@ class DoctorButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         backgroundColor: backgroundColor ??
-            Colors.white, // Establecer blanco como valor predeterminado
+            Colors.white, 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: borderColor != null
               ? BorderSide(
                   color: borderColor!,
-                  width: 2, // Agregar el borde si el color no es nulo
+                  width: 2, 
                 )
-              : BorderSide.none, // Sin borde si el color es nulo
+              : BorderSide.none, 
         ),
       ),
       child: Text(

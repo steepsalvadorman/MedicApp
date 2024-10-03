@@ -10,12 +10,13 @@ class PerfilPage extends StatelessWidget {
   }
 
   logout(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamedAndRemoveUntil(
+        context, '/login', (Route<dynamic> route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
-     final Usuario usuario =
+    final Usuario usuario =
         ModalRoute.of(context)!.settings.arguments as Usuario;
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +33,7 @@ class PerfilPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // User information section
+            // Sección de información del usuario
             Row(
               children: [
                 const CircleAvatar(
@@ -66,7 +67,7 @@ class PerfilPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            // Appointment list
+            // Lista de opciones del perfil
             MyPerfilOptions(
               title: 'Ver Perfil',
               color: Colors.blue[300]!,
@@ -87,7 +88,7 @@ class PerfilPage extends StatelessWidget {
               onTap: () => logout(context),
             ),
             const Spacer(),
-            // Buttons at the bottom
+            // Botones en la parte inferior
           ],
         ),
       ),
